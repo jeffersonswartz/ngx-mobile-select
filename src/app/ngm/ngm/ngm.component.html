@@ -1,0 +1,18 @@
+<div class="ngm-select" [ngClass]="{'ngm-select-input-bottom':isDropped}">
+    <div class="ngm-select-placeholder">
+        <span class="ngm-select-floating-label" [ngClass]="{'ngm-select-float-label': selected[property] || selected , 'ngm-select-active-float-label': isDropped}">{{placeholder}}</span>
+    </div>
+    <div class="ngm-select-selected-item" >
+        {{selected[property] || selected || placeholder}}
+    </div>
+    <div class="ngm-select-load-container" [ngClass]="{'ngm-select-backdrop':isDropped}">
+        <div class="ngm-select-load-list" *ngIf="isDropped">
+            <div class="ngm-select-load-header">{{placeholder}}</div>
+            <div class="ngm-select-load-list-container" [ngClass]="{'ngm-select-full-view':isFullView}">
+                <div class="ngm-select-list-item" [ngClass]="{'ngm-select-disabled-item':item.disabled}" (click)="item.disabled || select(item)" *ngFor="let item of list">{{item[property] || item}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{text}}
